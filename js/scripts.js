@@ -1,35 +1,29 @@
-// business logic
-function add(number1, number2) {
-  return number1 + number2;
-}
-function subtract(number3, number4) {
-  return number3 - number4;
-}
-function multiply(number5, number6) {
-  return number5 * number6;
-}
-function divide(number7, number8) {
-  return number7 / number8;
+// Business Logic
+function add(num1, num2) {
+  return num1 + num2;
 }
 
+function subtract(num1, num2) {
+  return num1 - num2;
+}
 
-// user interface logic 
-const number1 = parseInt(prompt("Enter a number:"));
-const number2 = parseInt(prompt("Enter another number:"));
+function multiply(num1, num2) {
+  return num1 * num2;
+}
 
-window.alert(add(number1, number2));
+function divide(num1, num2) {
+  return num1 / num2;
+}
 
-const number3 = parseInt(prompt("Enter a number:"));
-const number4 = parseInt(prompt("Enter another number:"));
+// User Interface Logic
+function handleCalculation(event) {
+  event.preventDefault();
+  const number1 = parseInt(document.querySelector("input#input1").value);
+  const number2 = parseInt(document.querySelector("input#input2").value);
+  const operator = document.querySelector("input[name='operator']:checked").value;
+}
 
-window.alert(subtract(number3, number4));
-
-const number5 = parseInt(prompt("Enter a number:"));
-const number6 = parseInt(prompt("Enter another number:"));
-
-window.alert(multiply(number5, number6));
-
-const number7 = parseInt(prompt("Enter a number:"));
-const number8 = parseInt(prompt("Enter another number:"));
-
-window.alert(divide(number7, number8));
+window.addEventListener("load", function () {
+  const form = document.getElementById("calculator");
+  form.addEventListener("submit", handleCalculation);
+});
